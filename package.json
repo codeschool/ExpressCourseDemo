@@ -1,0 +1,15 @@
+{
+  "name": "building_blocks_of_express ",
+  "version": "0.0.0",
+  "description": "This repo is for the Express course",
+  "author": "Carlos Souza <carloshrosouza@gmail.com.com>",
+  "dependencies": {
+    "body-parser": "^1.8.1",
+    "debug": "^0.8.1",
+    "express": "^4.9.0",
+    "request": "^2.34.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
