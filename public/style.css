@@ -1,0 +1,107 @@
+/* ----- Building Blocks Stylsheet ----- */
+
+/* Base */
+
+html {
+  background: #436f8e; /* Old browsers */
+  background: url('bg-stars.png') repeat-x center top, linear-gradient(to bottom, #436f8e 0%, #c2e8c2 100%) no-repeat center; /* W3C */
+  min-height: 100%;
+}
+
+body {
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  padding-top: 80px;
+  width: 600px;
+}
+
+/* Headings */
+
+h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Lists */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  margin-bottom: 10px;
+}
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Links */
+
+a {
+  color: #436f8e;
+  text-decoration: underline;
+  transition: color 0.2s ease-in-out;
+}
+a:hover,
+a:active {
+  color: #333;
+}
+
+/* Shared */
+
+form, .block-list {
+  background: white;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+/* Form */
+
+legend {
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+input {
+  border: 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+}
+input:focus {
+  box-shadow: 0 0 4px rgba(67, 111, 142, 0.65);
+  outline: none;
+}
+input[type="submit"] {
+  background: #436f8e;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  width: auto;
+}
+
+/* Block List */
+
+.block-list li::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.block-list li a:last-child {
+  float: left;
+  padding-right: 10px;
+}
