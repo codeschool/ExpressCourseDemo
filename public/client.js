@@ -1,4 +1,5 @@
 $(function(){
+  'use strict';
 
   $.get('/blocks', appendToList);
 
@@ -21,13 +22,10 @@ $(function(){
     var content, block;
     for(var i in blocks){
       block = blocks[i];
-      content = '<a href="/blocks/'+block+'">'+block+'</a>'+ // + // example on how to serve static images
-        ' <a href="#" data-block="'+block+'">'+
-        '<img src="delete.png" width="15px"></a>';
-      list.push($('<li>', { html: content }));
+      list.push($('<li>'), { html: blocks[i] });
     }
 
-    $('.block-list').append(list)
+    $('.block-list').append(list);
   }
 
 
