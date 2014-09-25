@@ -1,7 +1,7 @@
 {
-  "name": "building_blocks_of_express ",
+  "name": "ExpressCourseDemo",
   "version": "0.0.0",
-  "description": "This repo is for the Express course",
+  "description": "This demo app for the Express course",
   "author": "Carlos Souza <carloshrosouza@gmail.com.com>",
   "dependencies": {
     "body-parser": "^1.8.1",
