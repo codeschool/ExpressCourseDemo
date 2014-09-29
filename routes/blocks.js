@@ -24,7 +24,7 @@ router.use(bodyParser.urlencoded({extended: true}));
 var blocksRoute = router.route('/');
 blocksRoute.get(function (request, response) {
   response.json(Object.keys(blocks));
-})
+});
 blocksRoute.post(function (request, response) {
   var newBlock = request.body;
   blocks[newBlock.name] = newBlock.description;
