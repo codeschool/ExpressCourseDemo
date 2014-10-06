@@ -21,32 +21,31 @@ resetRoute.get(function(request, response) {
 
 router.use(bodyParser.urlencoded({extended: true}));
 
-var blocksRoute = router.route('/');
-blocksRoute.get(function (request, response) {
-  response.json(Object.keys(blocks));
-});
-blocksRoute.post(function (request, response) {
-  var newBlock = request.body;
-  blocks[newBlock.name] = newBlock.description;
+var blocksRoute = router.route('/')
+  .get(function (request, response) {
+    response.json(Object.keys(blocks));
+  })
+  .post(function (request, response) {
+    var newBlock = request.body;
+    blocks[newBlock.name] = newBlock.description;
 
-  response.status(201).json(newBlock.name);
-});
+    response.status(201).json(newBlock.name);
+  });
 
-var blockRoute = router.route('/:name');
-blockRoute.all(parseBlockName());
-blockRoute.get(function (request, response) {
-  var description = blocks[request.blockName];
+router.route('/:name')
+  .all(parseBlockName())
+  .get(function (request, response) {
+    var description = blocks[request.blockName];
 
-  if(!description){
-    response.status(404).json('No description found for ' + request.model);
-  }else{
-    response.json(description);
-  }
-})
-blockRoute.delete(function (request, response) {
-  delete blocks[request.blockName];
-  response.sendStatus(200);
-});
-
+    if(!description){
+      response.status(404).json('No description found for ' + request.model);
+    }else{
+      response.json(description);
+    }
+  })
+  .delete(function (request, response) {
+    delete blocks[request.blockName];
+    response.sendStatus(200);
+  });
 
 module.exports = router;
