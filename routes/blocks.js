@@ -3,7 +3,7 @@ var router = express.Router();
 var _ = require('lodash');
 
 var bodyParser = require('body-parser');
-var parseBlockName = require('./parse-block-name');
+var parseBlockName = require('./parse-block-name')();
 
 var originalBlocks = {
   'Fixed': 'Fastened securely in position',
@@ -19,13 +19,18 @@ resetRoute.get(function(request, response) {
   response.redirect('/');
 });
 
-router.use(bodyParser.urlencoded({extended: true}));
+var parseUrlencoded = bodyParser.urlencoded({ extended: false });
 
-var blocksRoute = router.route('/')
+router.route('/')
   .get(function (request, response) {
-    response.json(Object.keys(blocks));
+    var names = Object.keys(blocks);
+    if(request.query.limit >= 0){
+      response.json(names.slice(0, request.query.limit));
+    }else{
+      response.json(names);
+    }
   })
-  .post(function (request, response) {
+  .post(parseUrlencoded, function (request, response) {
     var newBlock = request.body;
     blocks[newBlock.name] = newBlock.description;
 
@@ -33,7 +38,7 @@ var blocksRoute = router.route('/')
   });
 
 router.route('/:name')
-  .all(parseBlockName())
+  .all(parseBlockName)
   .get(function (request, response) {
     var description = blocks[request.blockName];
 
