@@ -94,6 +94,16 @@ input[type="submit"] {
   width: auto;
 }
 
+/* Alert */
+
+.alert {
+  background: #dd516c;
+  color: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
 /* Block List */
 
 .block-list li::after {
